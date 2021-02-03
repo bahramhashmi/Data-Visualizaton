@@ -1,0 +1,1447 @@
+Part 1
+Introduction to seaborn
+
+
+Setup
+First, you'll learn how to run code, and we'll start with the code cell below. (Remember that a code cell in a notebook is just a gray box containing code that we'd like to run.)
+
+Begin by clicking inside the code cell.
+Click on the blue triangle (in the shape of a "Play button") that appears to the left of the code cell.
+If your code was run sucessfully, you will see Setup Complete as output below the cell.
+ex0_run_code
+
+
+arrow_upward
+
+arrow_downward
+
+delete
+
+unfold_less
+
+more_vert
+The code cell below imports and configures the Python libraries that you need to complete the exercise.
+
+Click on the cell and run it.
+
+
+arrow_upward
+
+arrow_downward
+
+delete
+
+unfold_less
+
+more_vert
+import pandas as pd
+pd.plotting.register_matplotlib_converters()
+import matplotlib.pyplot as plt
+%matplotlib inline
+import seaborn as sns
+​
+# Set up code checking
+import os
+if not os.path.exists("../input/fifa.csv"):
+    os.symlink("../input/data-for-datavis/fifa.csv", "../input/fifa.csv")  
+from learntools.core import binder
+binder.bind(globals())
+from learntools.data_viz_to_coder.ex1 import *
+print("Setup Complete")
+
+arrow_upward
+
+arrow_downward
+
+delete
+
+unfold_less
+
+more_vert
+The code you just ran sets up the system to give you feedback on your work. You'll learn more about the feedback system in the next step.
+
+Step 1: Explore the feedback system
+Each exercise lets you test your new skills with a real-world dataset. Along the way, you'll receive feedback on your work. You'll see if your answer is right, get customized hints, and see the official solution (_if you'd like to take a look!_).
+
+To explore the feedback system, we'll start with a simple example of a coding problem. Follow the following steps in order:
+
+Run the code cell below without making any edits. It will show the following output:
+
+Check: When you've updated the starter code, check() will tell you whether your code is correct. You need to update the code that creates variable one
+
+This means you need to change the code to set the variable one to something other than the blank provided below (____).
+
+Replace the underline with a 2, so that the line of code appears as one = 2. Then, run the code cell. This should return the following output:
+
+Incorrect: Incorrect value for one: 2
+
+This means we still have the wrong answer to the question.
+
+Now, change the 2 to 1, so that the line of code appears as one = 1. Then, run the code cell. The answer should be marked as Correct. You have now completed this problem!
+
+arrow_upward
+
+arrow_downward
+
+delete
+
+unfold_less
+
+more_vert
+# Fill in the line below
+one = 1
+# Check your answer
+step_1.check()
+
+arrow_upward
+
+arrow_downward
+
+delete
+
+unfold_less
+
+more_vert
+In this exercise, you were responsible for filling in the line of code that sets the value of variable one. Don't edit the code that checks your answer. You'll need to run the lines of code like step_1.check() and step_2.check() just as they are provided.
+
+This problem was relatively straightforward, but for more difficult problems, you may like to receive a hint or view the official solution. Run the code cell below now to receive both for this problem.
+
+
+arrow_upward
+
+arrow_downward
+
+delete
+
+unfold_less
+
+more_vert
+step_1.hint()
+step_1.solution()
+
+arrow_upward
+
+arrow_downward
+
+delete
+
+unfold_less
+
+more_vert
+Step 2: Load the data
+You are ready to get started with some data visualization! You'll begin by loading the dataset from the previous tutorial.
+
+The code you need is already provided in the cell below. Just run that cell. If it shows Correct result, you're ready to move on!
+
+
+arrow_upward
+
+arrow_downward
+
+delete
+
+unfold_less
+
+more_vert
+# Path of the file to read
+fifa_filepath = "../input/fifa.csv"
+​
+# Read the file into a variable fifa_data
+fifa_data = pd.read_csv(fifa_filepath, index_col="Date", parse_dates=True)
+​
+# Check your answer
+step_2.check()
+
+arrow_upward
+
+arrow_downward
+
+delete
+
+unfold_less
+
+more_vert
+Next, recall the difference between comments and executable code:
+
+Comments are preceded by a pound sign (#) and contain text that appear faded and italicized. They are completely ignored by the computer when the code is run.
+Executable code is code that is run by the computer.
+In the code cell below, every line is a comment:
+
+# Uncomment the line below to receive a hint
+#step_2.hint()
+#step_2.solution()
+If you run the code cell below without making any changes, it won't return any output. Try this now!
+
+
+arrow_upward
+
+arrow_downward
+
+delete
+
+unfold_less
+
+more_vert
+# Uncomment the line below to receive a hint
+#step_2.hint()
+# Uncomment the line below to see the solution
+#step_2.solution()
+
+arrow_upward
+
+arrow_downward
+
+delete
+
+unfold_less
+
+more_vert
+Next, remove the pound sign before step_2.hint() so that the code cell above appears as follows:
+
+# Uncomment the line below to receive a hint
+step_2.hint()
+#step_2.solution()
+When we remove the pound sign before a line of code, we say we uncomment the line. This turns the comment into a line of executable code that is run by the computer. Run the code cell now, which should return the Hint as output.
+
+Finally, uncomment the line to see the solution, so the code cell appears as follows:
+
+# Uncomment the line below to receive a hint
+step_2.hint()
+step_2.solution()
+Then, run the code cell. You should receive both a Hint and the Solution.
+
+If at any point you're having trouble with coming up with the correct answer to a problem, you are welcome to obtain either a hint or the solution before completing the cell. (So, you don't need to get a Correct result before running the code that gives you a Hint or the Solution.)
+
+Step 3: Plot the data
+Now that the data is loaded into the notebook, you're ready to visualize it!
+
+Run the next code cell without changes to make a line chart. The code may not make sense yet - you'll learn all about it in the next tutorial!
+
+
+arrow_upward
+
+arrow_downward
+
+delete
+
+unfold_less
+
+more_vert
+# Set the width and height of the figure
+plt.figure(figsize=(16,6))
+​
+# Line chart showing how FIFA rankings evolved over time
+sns.lineplot(data=fifa_data)
+​
+# Check your answer
+step_3.a.check()
+
+arrow_upward
+
+arrow_downward
+
+delete
+
+unfold_less
+
+more_vert
+Some questions won't require you to write any code. Instead, you'll interpret visualizations.
+
+As an example, consider the question: Considering only the years represented in the dataset, which countries spent at least 5 consecutive years in the #1 ranked spot?
+
+To receive a Hint, uncomment the line below, and run the code cell.
+
+
+arrow_upward
+
+arrow_downward
+
+delete
+
+unfold_less
+
+more_vert
+#step_3.b.hint()
+
+arrow_upward
+
+arrow_downward
+
+delete
+
+unfold_less
+
+more_vert
+Once you have an answer, check the Solution to get credit for completing the problem and to ensure your interpretation is right.
+
+
+arrow_upward
+
+arrow_downward
+
+delete
+
+unfold_less
+
+more_vert
+# Check your answer (Run this code cell to receive credit!)
+#step_3.b.solution()
+
+
+
+Part 2
+Line charts
+
+
+Setup
+Run the next cell to import and configure the Python libraries that you need to complete the exercise.
+
+
+arrow_upward
+
+arrow_downward
+
+delete
+
+unfold_less
+
+more_vert
+import pandas as pd
+pd.plotting.register_matplotlib_converters()
+import matplotlib.pyplot as plt
+%matplotlib inline
+import seaborn as sns
+print("Setup Complete")
+
+arrow_upward
+
+arrow_downward
+
+delete
+
+unfold_less
+
+more_vert
+The questions below will give you feedback on your work. Run the following cell to set up the feedback system.
+
+
+arrow_upward
+
+arrow_downward
+
+delete
+
+unfold_less
+
+more_vert
+# Set up code checking
+import os
+if not os.path.exists("../input/museum_visitors.csv"):
+    os.symlink("../input/data-for-datavis/museum_visitors.csv", "../input/museum_visitors.csv") 
+from learntools.core import binder
+binder.bind(globals())
+from learntools.data_viz_to_coder.ex2 import *
+print("Setup Complete")
+
+arrow_upward
+
+arrow_downward
+
+delete
+
+unfold_less
+
+more_vert
+Step 1: Load the data
+Your first assignment is to read the LA Museum Visitors data file into museum_data. Note that:
+
+The filepath to the dataset is stored as museum_filepath. Please do not change the provided value of the filepath.
+The name of the column to use as row labels is "Date". (This can be seen in cell A1 when the file is opened in Excel.)
+To help with this, you may find it useful to revisit some relevant code from the tutorial, which we have pasted below:
+
+# Path of the file to read
+spotify_filepath = "../input/spotify.csv"
+
+# Read the file into a variable spotify_data
+spotify_data = pd.read_csv(spotify_filepath, index_col="Date", parse_dates=True)
+The code you need to write now looks very similar!
+
+
+arrow_upward
+
+arrow_downward
+
+delete
+
+unfold_less
+
+more_vert
+# Path of the file to read
+museum_filepath = "../input/museum_visitors.csv"
+​
+# Fill in the line below to read the file into a variable museum_data
+museum_data = pd.read_csv(museum_filepath,index_col='Date',parse_dates=True)
+​
+# Run the line below with no changes to check that you've loaded the data correctly
+step_1.check()
+
+arrow_upward
+
+arrow_downward
+
+delete
+
+unfold_less
+
+more_vert
+# Uncomment the line below to receive a hint
+#step_1.hint()
+# Uncomment the line below to see the solution
+#step_1.solution()
+
+arrow_upward
+
+arrow_downward
+
+delete
+
+unfold_less
+
+more_vert
+Step 2: Review the data
+Use a Python command to print the last 5 rows of the data.
+
+
+arrow_upward
+
+arrow_downward
+
+delete
+
+unfold_less
+
+more_vert
+# Print the last five rows of the data 
+# Your code here
+museum_data.tail()
+
+arrow_upward
+
+arrow_downward
+
+delete
+
+unfold_less
+
+more_vert
+The last row (for 2018-11-01) tracks the number of visitors to each museum in November 2018, the next-to-last row (for 2018-10-01) tracks the number of visitors to each museum in October 2018, and so on.
+
+Use the last 5 rows of the data to answer the questions below.
+
+
+arrow_upward
+
+arrow_downward
+
+delete
+
+unfold_less
+
+more_vert
+# Fill in the line below: How many visitors did the Chinese American Museum 
+# receive in July 2018?
+ca_museum_jul18 = 2620
+​
+# Fill in the line below: In October 2018, how many more visitors did Avila 
+# Adobe receive than the Firehouse Museum?
+avila_oct18 = 19280-4622
+​
+# Check your answers
+step_2.check()
+
+arrow_upward
+
+arrow_downward
+
+delete
+
+unfold_less
+
+more_vert
+# Lines below will give you a hint or solution code
+#step_2.hint()
+#step_2.solution()
+
+arrow_upward
+
+arrow_downward
+
+delete
+
+unfold_less
+
+more_vert
+Step 3: Convince the museum board
+The Firehouse Museum claims they ran an event in 2014 that brought an incredible number of visitors, and that they should get extra budget to run a similar event again. The other museums think these types of events aren't that important, and budgets should be split purely based on recent visitors on an average day.
+
+To show the museum board how the event compared to regular traffic at each museum, create a line chart that shows how the number of visitors to each museum evolved over time. Your figure should have four lines (one for each museum).
+
+(Optional) Note: If you have some prior experience with plotting figures in Python, you might be familiar with the plt.show() command. If you decide to use this command, please place it after the line of code that checks your answer (in this case, place it after step_3.check() below) -- otherwise, the checking code will return an error!
+
+
+arrow_upward
+
+arrow_downward
+
+delete
+
+unfold_less
+
+more_vert
+# Line chart showing the number of visitors to each museum over time
+# Your code here
+sns.lineplot(data=museum_data)
+​
+# Check your answer
+step_3.check()
+
+arrow_upward
+
+arrow_downward
+
+delete
+
+unfold_less
+
+more_vert
+# Lines below will give you a hint or solution code
+#step_3.hint()
+#step_3.solution_plot()
+
+arrow_upward
+
+arrow_downward
+
+delete
+
+unfold_less
+
+more_vert
+Step 4: Assess seasonality
+When meeting with the employees at Avila Adobe, you hear that one major pain point is that the number of museum visitors varies greatly with the seasons, with low seasons (when the employees are perfectly staffed and happy) and also high seasons (when the employees are understaffed and stressed). You realize that if you can predict these high and low seasons, you can plan ahead to hire some additional seasonal employees to help out with the extra work.
+
+Part A
+Create a line chart that shows how the number of visitors to Avila Adobe has evolved over time. (_If your code returns an error, the first thing that you should check is that you've spelled the name of the column correctly! You must write the name of the column exactly as it appears in the dataset._)
+
+
+arrow_upward
+
+arrow_downward
+
+delete
+
+unfold_less
+
+more_vert
+# Line plot showing the number of visitors to Avila Adobe over time
+# Your code here
+sns.lineplot(data=museum_data['Avila Adobe'],label='Availa Adobe')
+​
+# Check your answer
+step_4.a.check()
+
+arrow_upward
+
+arrow_downward
+
+delete
+
+unfold_less
+
+more_vert
+# Lines below will give you a hint or solution code
+#step_4.a.hint()
+#step_4.a.solution_plot()
+
+arrow_upward
+
+arrow_downward
+
+delete
+
+unfold_less
+
+more_vert
+Part B
+Does Avila Adobe get more visitors:
+
+in September-February (in LA, the fall and winter months), or
+in March-August (in LA, the spring and summer)?
+Using this information, when should the museum staff additional seasonal employees?
+
+
+arrow_upward
+
+arrow_downward
+
+delete
+
+unfold_less
+
+more_vert
+#step_4.b.hint()
+
+arrow_upward
+
+arrow_downward
+
+delete
+
+unfold_less
+
+more_vert
+# Check your answer (Run this code cell to receive credit!)
+step_4.b.solution()
+
+
+
+Part 3
+Bar charts and heatmaps
+
+
+Setup
+Run the next cell to import and configure the Python libraries that you need to complete the exercise.
+
+
+arrow_upward
+
+arrow_downward
+
+delete
+
+unfold_less
+
+more_vert
+import pandas as pd
+pd.plotting.register_matplotlib_converters()
+import matplotlib.pyplot as plt
+%matplotlib inline
+import seaborn as sns
+print("Setup Complete")
+
+arrow_upward
+
+arrow_downward
+
+delete
+
+unfold_less
+
+more_vert
+The questions below will give you feedback on your work. Run the following cell to set up our feedback system.
+
+
+arrow_upward
+
+arrow_downward
+
+delete
+
+unfold_less
+
+more_vert
+# Set up code checking
+import os
+if not os.path.exists("../input/ign_scores.csv"):
+    os.symlink("../input/data-for-datavis/ign_scores.csv", "../input/ign_scores.csv") 
+from learntools.core import binder
+binder.bind(globals())
+from learntools.data_viz_to_coder.ex3 import *
+print("Setup Complete")
+
+arrow_upward
+
+arrow_downward
+
+delete
+
+unfold_less
+
+more_vert
+Step 1: Load the data
+Read the IGN data file into ign_data. Use the "Platform" column to label the rows.
+
+
+arrow_upward
+
+arrow_downward
+
+delete
+
+unfold_less
+
+more_vert
+# Path of the file to read
+ign_filepath = "../input/ign_scores.csv"
+​
+# Fill in the line below to read the file into a variable ign_data
+ign_data = pd.read_csv(ign_filepath,index_col="Platform") 
+# Run the line below with no changes to check that you've loaded the data correctly
+step_1.check()
+
+arrow_upward
+
+arrow_downward
+
+delete
+
+unfold_less
+
+more_vert
+# Lines below will give you a hint or solution code
+step_1.hint()
+#step_1.solution()
+
+arrow_upward
+
+arrow_downward
+
+delete
+
+unfold_less
+
+more_vert
+Step 2: Review the data
+Use a Python command to print the entire dataset.
+
+
+arrow_upward
+
+arrow_downward
+
+delete
+
+unfold_less
+
+more_vert
+# Print the data
+# Your code here
+print(ign_data)
+
+arrow_upward
+
+arrow_downward
+
+delete
+
+unfold_less
+
+more_vert
+The dataset that you've just printed shows the average score, by platform and genre. Use the data to answer the questions below.
+
+
+arrow_upward
+
+arrow_downward
+
+delete
+
+unfold_less
+
+more_vert
+# Fill in the line below: What is the highest average score received by PC games,
+# for any platform?
+high_score = 7.759930
+# Fill in the line below: On the Playstation Vita platform, which genre has the 
+# lowest average score? Please provide the name of the column, and put your answer 
+# in single quotes (e.g., 'Action', 'Adventure', 'Fighting', etc.)
+worst_genre ='Simulation'
+​
+# Check your answers
+step_2.check()
+
+arrow_upward
+
+arrow_downward
+
+delete
+
+unfold_less
+
+more_vert
+# Lines below will give you a hint or solution code
+#step_2.hint()
+#step_2.solution()
+
+arrow_upward
+
+arrow_downward
+
+delete
+
+unfold_less
+
+more_vert
+Step 3: Which platform is best?
+Since you can remember, your favorite video game has been Mario Kart Wii, a racing game released for the Wii platform in 2008. And, IGN agrees with you that it is a great game -- their rating for this game is a whopping 8.9! Inspired by the success of this game, you're considering creating your very own racing game for the Wii platform.
+
+Part A
+Create a bar chart that shows the average score for racing games, for each platform. Your chart should have one bar for each platform.
+
+
+arrow_upward
+
+arrow_downward
+
+delete
+
+unfold_less
+
+more_vert
+# Bar chart showing average score for racing games by platform
+# Your code here
+sns.barplot(x=ign_data['Racing'], y=ign_data.index)
+# Check your answer
+step_3.a.check()
+
+arrow_upward
+
+arrow_downward
+
+delete
+
+unfold_less
+
+more_vert
+# Lines below will give you a hint or solution code
+#step_3.a.hint()
+#tep_3.a.solution_plot()
+
+arrow_upward
+
+arrow_downward
+
+delete
+
+unfold_less
+
+more_vert
+Part B
+Based on the bar chart, do you expect a racing game for the Wii platform to receive a high rating? If not, what gaming platform seems to be the best alternative?
+
+
+arrow_upward
+
+arrow_downward
+
+delete
+
+unfold_less
+
+more_vert
+#step_3.b.hint()
+
+arrow_upward
+
+arrow_downward
+
+delete
+
+unfold_less
+
+more_vert
+# Check your answer (Run this code cell to receive credit!)
+step_3.b.solution()
+
+arrow_upward
+
+arrow_downward
+
+delete
+
+unfold_less
+
+more_vert
+Step 4: All possible combinations!
+Eventually, you decide against creating a racing game for Wii, but you're still committed to creating your own video game! Since your gaming interests are pretty broad (_... you generally love most video games_), you decide to use the IGN data to inform your new choice of genre and platform.
+
+Part A
+Use the data to create a heatmap of average score by genre and platform.
+
+
+arrow_upward
+
+arrow_downward
+
+delete
+
+unfold_less
+
+more_vert
+# Heatmap showing average game score by platform and genre
+# Your code here
+sns.heatmap(data=ign_data,annot=True)
+# Check your answer
+step_4.a.check()
+
+arrow_upward
+
+arrow_downward
+
+delete
+
+unfold_less
+
+more_vert
+# Lines below will give you a hint or solution code
+#step_4.a.hint()
+#step_4.a.solution_plot()
+
+arrow_upward
+
+arrow_downward
+
+delete
+
+unfold_less
+
+more_vert
+Part B
+Which combination of genre and platform receives the highest average ratings? Which combination receives the lowest average rankings?
+
+
+arrow_upward
+
+arrow_downward
+
+delete
+
+unfold_less
+
+more_vert
+#step_4.b.hint()
+
+arrow_upward
+
+arrow_downward
+
+delete
+
+unfold_less
+
+more_vert
+# Check your answer (Run this code cell to receive credit!)
+step_4.b.solution()
+
+arrow_upward
+
+arrow_downward
+
+delete
+
+unfold_less
+
+more_vert
+Keep going
+Move on to learn all about scatter plots!
+
+
+Part 4
+scatter plot
+
+
+Setup
+Run the next cell to import and configure the Python libraries that you need to complete the exercise.
+
+
+arrow_upward
+
+arrow_downward
+
+delete
+
+unfold_less
+
+more_vert
+import pandas as pd
+pd.plotting.register_matplotlib_converters()
+import matplotlib.pyplot as plt
+%matplotlib inline
+import seaborn as sns
+print("Setup Complete")
+
+arrow_upward
+
+arrow_downward
+
+delete
+
+unfold_less
+
+more_vert
+The questions below will give you feedback on your work. Run the following cell to set up our feedback system.
+
+
+arrow_upward
+
+arrow_downward
+
+delete
+
+unfold_less
+
+more_vert
+# Set up code checking
+import os
+if not os.path.exists("../input/candy.csv"):
+    os.symlink("../input/data-for-datavis/candy.csv", "../input/candy.csv") 
+from learntools.core import binder
+binder.bind(globals())
+from learntools.data_viz_to_coder.ex4 import *
+print("Setup Complete")
+
+arrow_upward
+
+arrow_downward
+
+delete
+
+unfold_less
+
+more_vert
+Step 1: Load the Data
+Read the candy data file into candy_data. Use the "id" column to label the rows.
+
+
+arrow_upward
+
+arrow_downward
+
+delete
+
+unfold_less
+
+more_vert
+# Path of the file to read
+candy_filepath = "../input/candy.csv"
+​
+# Fill in the line below to read the file into a variable candy_data
+candy_data = pd.read_csv(candy_filepath,index_col='id')
+​
+# Run the line below with no changes to check that you've loaded the data correctly
+step_1.check()
+
+arrow_upward
+
+arrow_downward
+
+delete
+
+unfold_less
+
+more_vert
+# Lines below will give you a hint or solution code
+#step_1.hint()
+#step_1.solution()
+
+arrow_upward
+
+arrow_downward
+
+delete
+
+unfold_less
+
+more_vert
+Step 2: Review the data
+Use a Python command to print the first five rows of the data.
+
+
+arrow_upward
+
+arrow_downward
+
+delete
+
+unfold_less
+
+more_vert
+# Print the first five rows of the data
+# Your code here
+candy_data.head()
+
+arrow_upward
+
+arrow_downward
+
+delete
+
+unfold_less
+
+more_vert
+The dataset contains 83 rows, where each corresponds to a different candy bar. There are 13 columns:
+
+'competitorname' contains the name of the candy bar.
+the next 9 columns (from 'chocolate' to 'pluribus') describe the candy. For instance, rows with chocolate candies have "Yes" in the 'chocolate' column (and candies without chocolate have "No" in the same column).
+'sugarpercent' provides some indication of the amount of sugar, where higher values signify higher sugar content.
+'pricepercent' shows the price per unit, relative to the other candies in the dataset.
+'winpercent' is calculated from the survey results; higher values indicate that the candy was more popular with survey respondents.
+Use the first five rows of the data to answer the questions below.
+
+
+arrow_upward
+
+arrow_downward
+
+delete
+
+unfold_less
+
+more_vert
+# Fill in the line below: Which candy was more popular with survey respondents:
+# '3 Musketeers' or 'Almond Joy'?  (Please enclose your answer in single quotes.)
+more_popular = '3 Musketeers'
+​
+# Fill in the line below: Which candy has higher sugar content: 'Air Heads'
+# or 'Baby Ruth'? (Please enclose your answer in single quotes.)
+more_sugar = 'Air Heads'
+​
+# Check your answers
+step_2.check()
+
+arrow_upward
+
+arrow_downward
+
+delete
+
+unfold_less
+
+more_vert
+# Lines below will give you a hint or solution code
+#step_2.hint()
+#step_2.solution()
+
+arrow_upward
+
+arrow_downward
+
+delete
+
+unfold_less
+
+more_vert
+Step 3: The role of sugar
+Do people tend to prefer candies with higher sugar content?
+
+Part A
+Create a scatter plot that shows the relationship between 'sugarpercent' (on the horizontal x-axis) and 'winpercent' (on the vertical y-axis). Don't add a regression line just yet -- you'll do that in the next step!
+
+
+arrow_upward
+
+arrow_downward
+
+delete
+
+unfold_less
+
+more_vert
+# Scatter plot showing the relationship between 'sugarpercent' and 'winpercent'
+# Your code here
+sns.scatterplot(x=candy_data['sugarpercent'],y=candy_data['winpercent'])
+​
+# Check your answer
+step_3.a.check()
+
+arrow_upward
+
+arrow_downward
+
+delete
+
+unfold_less
+
+more_vert
+# Lines below will give you a hint or solution code
+#step_3.a.hint()
+#step_3.a.solution_plot()
+
+arrow_upward
+
+arrow_downward
+
+delete
+
+unfold_less
+
+more_vert
+Part B
+Does the scatter plot show a strong correlation between the two variables? If so, are candies with more sugar relatively more or less popular with the survey respondents?
+
+
+arrow_upward
+
+arrow_downward
+
+delete
+
+unfold_less
+
+more_vert
+#step_3.b.hint()
+sns.regplot(x=candy_data['sugarpercent'],y=candy_data['winpercent'])
+
+arrow_upward
+
+arrow_downward
+
+delete
+
+unfold_less
+
+more_vert
+# Check your answer (Run this code cell to receive credit!)
+step_3.b.solution()
+
+arrow_upward
+
+arrow_downward
+
+delete
+
+unfold_less
+
+more_vert
+Step 4: Take a closer look
+Part A
+Create the same scatter plot you created in Step 3, but now with a regression line!
+
+
+arrow_upward
+
+arrow_downward
+
+delete
+
+unfold_less
+
+more_vert
+# Scatter plot w/ regression line showing the relationship between 'sugarpercent' and 'winpercent'
+# Your code here
+sns.regplot(x=candy_data['sugarpercent'],y=candy_data['winpercent'])
+​
+# Check your answer
+step_4.a.check()
+
+arrow_upward
+
+arrow_downward
+
+delete
+
+unfold_less
+
+more_vert
+# Lines below will give you a hint or solution code
+#step_4.a.hint()
+#step_4.a.solution_plot()
+
+arrow_upward
+
+arrow_downward
+
+delete
+
+unfold_less
+
+more_vert
+Part B
+According to the plot above, is there a slight correlation between 'winpercent' and 'sugarpercent'? What does this tell you about the candy that people tend to prefer?
+
+
+arrow_upward
+
+arrow_downward
+
+delete
+
+unfold_less
+
+more_vert
+#step_4.b.hint()
+
+arrow_upward
+
+arrow_downward
+
+delete
+
+unfold_less
+
+more_vert
+# Check your answer (Run this code cell to receive credit!)
+#step_4.b.solution()
+
+arrow_upward
+
+arrow_downward
+
+delete
+
+unfold_less
+
+more_vert
+Step 5: Chocolate!
+In the code cell below, create a scatter plot to show the relationship between 'pricepercent' (on the horizontal x-axis) and 'winpercent' (on the vertical y-axis). Use the 'chocolate' column to color-code the points. Don't add any regression lines just yet -- you'll do that in the next step!
+
+
+arrow_upward
+
+arrow_downward
+
+delete
+
+unfold_less
+
+more_vert
+# Scatter plot showing the relationship between 'pricepercent', 'winpercent', and 'chocolate'
+# Your code here
+sns.scatterplot(x=candy_data['pricepercent'],y=candy_data['winpercent'],hue=candy_data['chocolate'])
+# Check your answer
+step_5.check()
+
+arrow_upward
+
+arrow_downward
+
+delete
+
+unfold_less
+
+more_vert
+# Lines below will give you a hint or solution code
+#step_5.hint()
+step_5.solution_plot()
+
+arrow_upward
+
+arrow_downward
+
+delete
+
+unfold_less
+
+more_vert
+Can you see any interesting patterns in the scatter plot? We'll investigate this plot further by adding regression lines in the next step!
+
+Step 6: Investigate chocolate
+Part A
+Create the same scatter plot you created in Step 5, but now with two regression lines, corresponding to (1) chocolate candies and (2) candies without chocolate.
+
+
+arrow_upward
+
+arrow_downward
+
+delete
+
+unfold_less
+
+more_vert
+# Color-coded scatter plot w/ regression lines
+# Your code here
+sns.lmplot(x='pricepercent', y='winpercent',hue='chocolate',data=candy_data)
+# Check your answer
+step_6.a.check()
+
+arrow_upward
+
+arrow_downward
+
+delete
+
+unfold_less
+
+more_vert
+# Lines below will give you a hint or solution code
+#step_6.a.hint()
+step_6.a.solution_plot()
+
+arrow_upward
+
+arrow_downward
+
+delete
+
+unfold_less
+
+more_vert
+Part B
+Using the regression lines, what conclusions can you draw about the effects of chocolate and price on candy popularity?
+
+
+arrow_upward
+
+arrow_downward
+
+delete
+
+unfold_less
+
+more_vert
+#step_6.b.hint()
+
+arrow_upward
+
+arrow_downward
+
+delete
+
+unfold_less
+
+more_vert
+# Check your answer (Run this code cell to receive credit!)
+step_6.b.solution()
+
+arrow_upward
+
+arrow_downward
+
+delete
+
+unfold_less
+
+more_vert
+Step 7: Everybody loves chocolate.
+Part A
+Create a categorical scatter plot to highlight the relationship between 'chocolate' and 'winpercent'. Put 'chocolate' on the (horizontal) x-axis, and 'winpercent' on the (vertical) y-axis.
+
+
+arrow_upward
+
+arrow_downward
+
+delete
+
+unfold_less
+
+more_vert
+# Scatter plot showing the relationship between 'chocolate' and 'winpercent'
+# Your code here
+sns.swarmplot(x=candy_data['chocolate'],y=candy_data['winpercent'])
+# Check your answer
+step_7.a.check()
+
+arrow_upward
+
+arrow_downward
+
+delete
+
+unfold_less
+
+more_vert
+# Lines below will give you a hint or solution code
+#step_7.a.hint()
+#step_7.a.solution_plot()
